@@ -1,10 +1,10 @@
 <div align="center"> <img src='images/fig1.jpg' width="1000px"> </div>
 
-# Unsupervised Low-light Face Enhancement in the Wild
+# Unsupervised Low-light Face Image Enhancement in the Wild
 
 This repository contains training code for the project.
 
-Unsupervised Low-light Face Enhancement in the Wild.
+Unsupervised Low-light Face Image Enhancement in the Wild.
 
 The model learns to brighten dark faces in the wild, aiming to obtain a better visual effects and improve the accuracy of face recognition.
  
@@ -17,7 +17,7 @@ Contact: Zhuo Wang (1048727525@qq.com)
 - CPU or NVIDIA GPU + CUDA CuDNN
 - Python 3.x
 - Pytorch 1.1.0 or higher, torchvision 0.3.0 or higher
-- Some dependencies
+- Other dependencies
 
 ### Installation
 - Clone this repo:
@@ -26,7 +26,7 @@ git clone https://github.com/1048727525/FIE
 cd FIE
 ```
 
-- Install PyTorch and other dependencies
+- Install PyTorch and other dependencies:
    - For pip users, please type the command `pip install -r requirements.txt`.
    - For Conda users, you can create a new Conda environment using `conda env create -f environment.yml`.
 

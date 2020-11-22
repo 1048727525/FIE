@@ -138,6 +138,6 @@ dmypy.json
 cython_debug/
 
 # My ignore
-dataset/*
-other_models/*
-results/*
+dataset/
+other_models/
+results/

@@ -2,10 +2,11 @@
 # -*- encoding: utf-8 -*-
 '''
 @File    :   solver.py
-@Time    :   2020/11/21 11:46:04
-@Author  :   Wang Zhuo 
+@Time    :   2020/11/22 19:22:25
+@Author  :   Zhuo Wang 
 @Contact :   1048727525@qq.com
 '''
+
 import time, itertools
 from dataset import ImageFolder
 from torchvision import transforms

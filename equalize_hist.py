@@ -2,8 +2,8 @@
 # -*- encoding: utf-8 -*-
 '''
 @File    :   equalize_hist.py
-@Time    :   2020/11/22 11:21:26
-@Author  :   Wang Zhuo 
+@Time    :   2020/11/22 19:22:32
+@Author  :   Zhuo Wang 
 @Contact :   1048727525@qq.com
 '''
 

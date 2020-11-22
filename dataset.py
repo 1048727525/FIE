@@ -1,12 +1,3 @@
-#! python3
-# -*- encoding: utf-8 -*-
-'''
-@File    :   dataset.py
-@Time    :   2020/11/22 15:09:34
-@Author  :   Wang Zhuo 
-@Contact :   1048727525@qq.com
-'''
-
 import torch.utils.data as data
 from PIL import Image
 import os

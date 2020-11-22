@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES='0' nohup python -u main.py --dataset dark_and_norm --img_size 112 --batch_size 1 --result_dir v0 --resume true --decay_flag False > v0.log 2>&1 &

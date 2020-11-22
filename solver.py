@@ -304,3 +304,20 @@ class solver(object):
         params['disGA'] = self.disGA.state_dict()
         params['disLA'] = self.disLA.state_dict()
         torch.save(params, os.path.join(dir, self.dataset + '_params_%07d.pt' % step))
+    
+    def test(self):
+        model_list = glob(os.path.join("results", self.result_dir, 'model', '*.pt'))
+        if not len(model_list) == 0:
+            model_list.sort()
+            iter = int(model_list[-1].split('_')[-1].split('.')[0])
+            self.load(os.path.join("results", self.result_dir, 'model'), iter)
+            print(" [*] Load SUCCESS")
+        else:
+            print(" [*] Load FAILURE")
+            return
+        self.genA2B.eval()
+        for i, (real_A, _) in enumerate(self.testA_loader):
+            real_A = real_A.to(self.device)
+            fake_A2B, fake_A2B_heatmap0, fake_A2B_heatmap1_0, fake_A2B_heatmap1_1, fake_A2B_heatmap2 = self.genA2B(real_A, self.s_B_mean_tensor, self.device)
+            A2B = np.concatenate((RGB2BGR(tensor2numpy(denorm(real_A[0]))), cam(tensor2numpy(fake_A2B_heatmap0[0]), self.img_size), cam(tensor2numpy(fake_A2B_heatmap1_0[0]), self.img_size), cam(tensor2numpy(fake_A2B_heatmap2[0]), self.img_size), RGB2BGR(tensor2numpy(denorm(fake_A2B[0])))), 0)
+            cv2.imwrite(os.path.join("results", self.result_dir, 'test', 'A2B_%d.png' % (i + 1)), A2B * 255.0)

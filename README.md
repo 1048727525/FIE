@@ -13,9 +13,22 @@ Contact: Zhuo Wang (1048727525@qq.com)
 ## Usage
 
 ### Prerequisites
+- Linux or macOS
+- CPU or NVIDIA GPU + CUDA CuDNN
 - Python 3.x
 - Pytorch 1.1.0 or higher, torchvision 0.3.0 or higher
-- 
+- Some dependencies
+
+### Installation
+- Clone this repo:
+```
+git clone https://github.com/1048727525/FIE
+cd FIE
+```
+
+- Install PyTorch and other dependencies
+   - For pip users, please type the command `pip install -r requirements.txt`.
+   - For Conda users, you can create a new Conda environment using `conda env create -f environment.yml`.
 
 ### Prepare Datasets
 
@@ -23,7 +36,7 @@ We used [CASIA-Webface](http://www.cbsr.ia.ac.cn/english/CASIA-WebFace-Database.
 
 All face images are detected by [MTCNN](https://github.com/kpzhang93/MTCNN_face_detection_alignment), and then cropped.
 
-## Pretrained models
+### Pretrained models
 
 * [IR-SE50 @ BaiduNetdisk](https://pan.baidu.com/s/12BUjjwy1uUTEF9HCx5qvoQ)
 * [IR-SE50 @ Onedrive](https://1drv.ms/u/s!AhMqVPD44cDOhkPsOU2S_HFpY9dC)
@@ -31,16 +44,29 @@ All face images are detected by [MTCNN](https://github.com/kpzhang93/MTCNN_face_
 * [Mobilefacenet @ OneDrive](https://1drv.ms/u/s!AhMqVPD44cDOhkSMHodSH4rhfb5u)
 
 ### Train and test
-
-- Train
-
-After low-light face images and normal illumination face images are ready.
-Modify image path and list path and other settings in **config.py**.
+After low-light face images and normal illumination face images are ready, and are placed like this(A: Low-light face, B: normal illumination face):
 ```
-python main.py
+├── dataset
+   └── YOUR_DATASET_NAME
+       ├── trainA
+           ├── xxx.jpg (name, format doesn't matter)
+           ├── yyy.png
+           └── ...
+       ├── trainB
+           ├── zzz.jpg
+           ├── www.png
+           └── ...
+       ├── testA
+           ├── aaa.jpg 
+           ├── bbb.png
+           └── ...
+```
+- Train
+```
+CUDA_VISIBLE_DEVICES='0' python -u main.py --dataset YOUR_DATASET_NAME --result_dir YOUR_RESULT_NAME
 ```
 - Test
 ```
-python test.py --test_path your_test_path --test_list your_test_list --checkpoint_ft pretrained_model_path
+CUDA_VISIBLE_DEVICES='0' python -u main.py --dataset YOUR_DATASET_NAME --result_dir YOUR_RESULT_NAME --phase test
 ```
 

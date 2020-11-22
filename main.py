@@ -29,7 +29,7 @@ def parse_args():
     # Hyperparameter
     parser.add_argument('--adv_weight', type=int, default=1, help='Weight for GAN')
     parser.add_argument('--identity_weight', type=int, default=10, help='Weight for Identity')
-    parser.add_argument('--perceptual_weight', type=int, default=100, help='Weight for Perceptual Loss')
+    parser.add_argument('--perceptual_weight', type=int, default=100, help='Weight for Perceptual')
     parser.add_argument('--histogram_weight', type=int, default=100, help='Weight for Histogram')
     parser.add_argument('--pixel_weight', type=float, default=0.01, help='Weight for Pixel')
     parser.add_argument('--pixel_loss_interval', type=int, default=5, help='Interval for Pixel Loss Working')
@@ -38,10 +38,10 @@ def parse_args():
     parser.add_argument('--n_res', type=int, default=4, help='The number of resblock')
     parser.add_argument('--n_dis', type=int, default=6, help='The number of discriminator layer')
 
-    parser.add_argument('--img_size', type=int, default=256, help='The size of image')
+    parser.add_argument('--img_size', type=int, default=112, help='The size of image')
     parser.add_argument('--img_ch', type=int, default=3, help='The size of image channel')
 
-    parser.add_argument('--result_dir', type=str, default='results', help='Directory name to save the results')
+    parser.add_argument('--result_dir', type=str, default='YOUR_RESULT_NAME', help='Directory name to save the results')
     parser.add_argument('--device', default = torch.device('cuda' if torch.cuda.is_available() else 'cpu'))
     parser.add_argument('--resume', type=str2bool, default=False)
     parser.add_argument('--expert_net_choice', type=str, default='senet50', choices=['senet50', 'moblieface'])

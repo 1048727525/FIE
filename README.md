@@ -44,7 +44,7 @@ All face images are detected by [MTCNN](https://github.com/kpzhang93/MTCNN_face_
 * [Mobilefacenet @ OneDrive](https://1drv.ms/u/s!AhMqVPD44cDOhkSMHodSH4rhfb5u)
 
 ### Train and test
-After low-light face images and normal illumination face images are ready, and are placed like this(A: Low-light face, B: normal illumination face):
+After low-light face images and normal illumination face images are ready, and are placed like this (A: Low-light face, B: normal illumination face):
 ```
 ├── dataset
    └── YOUR_DATASET_NAME
